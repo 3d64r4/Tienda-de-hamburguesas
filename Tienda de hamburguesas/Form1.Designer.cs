@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tortas));
             listTorta = new ListBox();
             listRefresco = new ListBox();
             listPostre = new ListBox();
@@ -45,6 +46,8 @@
             textSubtotal = new TextBox();
             textIva = new TextBox();
             textTotal = new TextBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // listTorta
@@ -55,6 +58,7 @@
             listTorta.Name = "listTorta";
             listTorta.Size = new Size(132, 94);
             listTorta.TabIndex = 0;
+            listTorta.SelectedIndexChanged += listTorta_SelectedIndexChanged;
             // 
             // listRefresco
             // 
@@ -74,7 +78,6 @@
             listPostre.Size = new Size(132, 94);
             listPostre.TabIndex = 2;
             listPostre.TabStop = false;
-            listPostre.SelectedIndexChanged += listPostre_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -85,7 +88,6 @@
             label1.Size = new Size(64, 30);
             label1.TabIndex = 3;
             label1.Text = "Torta";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -116,6 +118,7 @@
             BtnCalcular.TabIndex = 6;
             BtnCalcular.Text = "Calcular Pago";
             BtnCalcular.UseVisualStyleBackColor = true;
+            BtnCalcular.Click += BtnCalcular_Click;
             // 
             // label4
             // 
@@ -129,7 +132,7 @@
             // 
             // textCodigo
             // 
-            textCodigo.Location = new Point(266, 341);
+            textCodigo.Location = new Point(275, 343);
             textCodigo.Name = "textCodigo";
             textCodigo.Size = new Size(100, 23);
             textCodigo.TabIndex = 8;
@@ -143,9 +146,11 @@
             btnBuscar.TabIndex = 9;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // textObsequio
             // 
+            textObsequio.Enabled = false;
             textObsequio.Location = new Point(266, 397);
             textObsequio.Name = "textObsequio";
             textObsequio.Size = new Size(291, 23);
@@ -205,11 +210,22 @@
             textTotal.Size = new Size(100, 23);
             textTotal.TabIndex = 16;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(945, 198);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(241, 229);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
+            // 
             // Tortas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1112, 565);
+            ClientSize = new Size(1236, 565);
+            Controls.Add(pictureBox1);
             Controls.Add(textTotal);
             Controls.Add(textIva);
             Controls.Add(textSubtotal);
@@ -229,9 +245,10 @@
             Controls.Add(listTorta);
             MinimizeBox = false;
             Name = "Tortas";
-            Text = "Form1";
+            Text = "Tortas Don Juan";
             WindowState = FormWindowState.Maximized;
             Load += Tortas_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,5 +272,6 @@
         private TextBox textSubtotal;
         private TextBox textIva;
         private TextBox textTotal;
+        private PictureBox pictureBox1;
     }
 }
